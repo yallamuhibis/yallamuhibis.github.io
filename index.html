@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>يلا محيبس - اللعبة التراثية الأولى على الموبايل</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- تنسيقات عامة --- */
+        :root {
+            --primary-color: #f39c12; /* لون ذهبي/برتقالي للتأكيد */
+            --secondary-color: #2c3e50; /* لون أزرق داكن للخلفيات */
+            --accent-color: #e74c3c; /* لون أحمر للأزرار */
+            --text-light: #ecf0f1; /* لون نص فاتح */
+            --text-dark: #333; /* لون نص داكن */
+        }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 {
+            font-family: 'Changa', sans-serif;
+        }
+        a { text-decoration: none; }
+
+        /* --- رأس الصفحة (Header) --- */
+        header {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://github.com/yallamuhibis/Yalla-Muhibes/raw/master/screenshots/ss2.jpg') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 150px 20px;
+            position: relative;
+        }
+        header h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInDown 1s ease-out;
+        }
+        header p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+        /* زر التحميل */
+        .download-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+            animation: pulse 2s infinite;
+        }
+        .download-btn:hover {
+            background-color: #d35400;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(211, 84, 0, 0.5);
+        }
+        .download-btn i { margin-left: 10px; }
+
+        /* --- قسم المميزات (Features) --- */
+        .features {
+            padding: 80px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .features h2 {
+            font-size: 2.5em;
+            color: var(--secondary-color);
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .features h2::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .feature-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .feature-box {
+            flex: 1 1 300px;
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+        .feature-box i {
+            font-size: 4em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .feature-box h3 {
+            font-size: 1.5em;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        .feature-box p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* --- قسم لقطات الشاشة (Screenshots) --- */
+        .screenshots {
+            padding: 80px 20px;
+            background-color: var(--secondary-color);
+            text-align: center;
+            color: var(--text-light);
+        }
+        .screenshots h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+        .screenshot-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+        .screenshot-container img {
+            max-width: 250px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .screenshot-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- تذييل الصفحة (Footer) --- */
+        footer {
+            background-color: #1a252f;
+            color: #7f8c8d;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        footer p { margin: 10px 0; }
+        footer a { color: var(--primary-color); }
+
+        /* --- تأثيرات الحركة (Animations) --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- التجاوب مع الشاشات الصغيرة (Responsive) --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5em; }
+            header p { font-size: 1.2em; }
+            .feature-container { flex-direction: column; }
+            .screenshot-container img { max-width: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>يلا محيبس</h1>
+        <p>عيش أجواء اللعبة العراقية التراثية بتصميم عصري وممتع</p>
+        <a href="https://play.google.com/store/apps/details?id=com.yallamuhibis" class="download-btn" target="_blank">
+            <i class="fab fa-google-play"></i> حملها الآن من Google Play
+        </a>
+    </header>
+
+    <section class="features">
+        <h2>مميزات اللعبة</h2>
+        <div class="feature-container">
+            <div class="feature-box">
+                <i class="fas fa-gamepad"></i>
+                <h3>لعب أونلاين 1v1</h3>
+                <p>تحدى أصدقاءك أو لاعبين من جميع أنحاء العالم في مباريات حماسية.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-microphone-alt"></i>
+                <h3>دردشة صوتية</h3>
+                <p>تواصل مع خصمك مباشرة أثناء اللعب لزيادة الحماس والتشويق.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-trophy"></i>
+                <h3>تصميم تراثي</h3>
+                <p>جرافيك ومؤثرات صوتية تنقلك إلى قلب الأجواء العراقية الأصيلة.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="screenshots">
+        <h2>نظرة من داخل اللعبة</h2>
+        <div class="screenshot-container">
+            <img src="https://github.com/yallamuhibis/Yalla-Muhibes/raw/master/screenshots/ss1.jpg" alt="لقطة شاشة 1">
+            <img src="https://github.com/yallamuhibis/Yalla-Muhibes/raw/master/screenshots/ss2.jpg" alt="لقطة شاشة 2">
+            <img src="https://github.com/yallamuhibis/Yalla-Muhibes/raw/master/screenshots/ss3.jpg" alt="لقطة شاشة 3">
+            <img src="https://github.com/yallamuhibis/Yalla-Muhibes/raw/master/screenshots/ss4.jpg" alt="لقطة شاشة 4">
+        </div>
+    </section>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2024 | يلا محيبس</p>
+        <p>
+            <a href="privacy.html">سياسة الخصوصية</a> | 
+            <a href="mailto:support@yallamuhibis.com">تواصل معنا</a>
+        </p>
+    </footer>
+
+</body>
+</html>
